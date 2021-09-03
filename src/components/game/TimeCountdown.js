@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPause, faPlay } from '@fortawesome/free-solid-svg-icons'
-import { getDatabase, ref, runTransaction } from 'firebase/database'
-import React, { useState, useEffect } from 'react'
+// import { getDatabase, ref, runTransaction } from 'firebase/database'
+import React from 'react'
 
 function TimeCountdown(props) {
     const secondsString = String(props.time % 60)
