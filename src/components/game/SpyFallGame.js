@@ -2,6 +2,8 @@ import { Button } from '@material-ui/core'
 import { get, getDatabase, onValue, ref, set, runTransaction } from 'firebase/database'
 import React, { useState, useEffect } from 'react'
 import TimeCountdown from './TimeCountdown'
+import placesList from '../../places.json'
+import Place from './Place'
 
 function SpyFallGame(props) {
     const [ spy, setSpy ] = useState(false)
@@ -67,6 +69,9 @@ function SpyFallGame(props) {
                 <div className="lobbyHostControls">
                     Waiting for the game to start    
                 </div>}
+                <div className="placesList">
+                    {placesList.map(placeData => <Place place={placeData} />)}
+                </div>
         </div>
     )
 }

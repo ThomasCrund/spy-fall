@@ -38,7 +38,7 @@ function LobbyPage(props) {
         }
         let playersSnap = await get(ref(db, `Games/${props.gameId}/Players`))
         let place = places[Math.floor(Math.random() * places.length)] 
-        let players = await Object.entries(playersSnap.val()).map((value, index) => value[0])
+        let players = await (Object.entries(playersSnap.val()).filter(value => (value[1].Online === true && value[1].Ready === true))).map((value, index) => value[0])
         let spy = players[Math.floor(Math.random() * players.length)] 
         await set(ref(db, `Games/${props.gameId}/Players/${spy}/Spy`), true)
         update(ref(db, `Games/${props.gameId}`), {
