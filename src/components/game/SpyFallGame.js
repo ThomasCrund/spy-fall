@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 import TimeCountdown from './TimeCountdown'
 import placesList from '../../places.json'
 import Place from './Place'
+import PlaceSpyLabel from './PlaceSpyLabel'
 
 function SpyFallGame(props) {
     const [ spy, setSpy ] = useState(false)
@@ -51,27 +52,29 @@ function SpyFallGame(props) {
     }
     return (
         <div className="rightPanel">
-            <TimeCountdown time={time} host={props.host} gameId={props.gameId} countingDown={countingDown} startCountDown={startCountDown} endCountDown={endCountDown} />
-            {(!spy) ? (
-                place?.name !== "loading" ? <div>
-                    The place is {place.name}
-                </div> : null
-            ) : <div>You are the spy. You need to guess the place</div>}
-            {props.host ?
-                <div className="lobbyHostControls">
-                    <span style={{fontSize: 20}}>You are the host</span>
-                    <div>
-                    <Button variant="outlined" color="primary" onClick={endGame}>
-                        End Game
-                    </Button>
-                    </div>
-                </div> : 
-                <div className="lobbyHostControls">
-                    Waiting for the game to start    
-                </div>}
-                <div className="placesList">
-                    {placesList.map(placeData => <Place place={placeData} />)}
+            
+            <div className="gameControlPanel">
+                <PlaceSpyLabel spy={spy} place={place} />
+                <div className="controlsRight">
+                    <TimeCountdown time={time} host={props.host} gameId={props.gameId} countingDown={countingDown} startCountDown={startCountDown} endCountDown={endCountDown} />
+                    {props.host ?
+                        <div className="lobbyHostControls">
+                            <span style={{fontSize: 20}}>You are the host</span>
+                            <div>
+                            <Button variant="outlined" color="primary" onClick={endGame}>
+                                End Game
+                            </Button>
+                            </div>
+                        </div> : 
+                        <div className="lobbyHostControls">
+                            {spy ? "You need to guess the place" : "You need to discover the spy" }  
+                        </div>
+                    }
                 </div>
+            </div>
+            <div className="placesList">
+                {placesList.map(placeData => <Place place={placeData} />)}
+            </div>
         </div>
     )
 }
