@@ -19,13 +19,13 @@ import GamePage from './components/game/GamePage';
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA981ilecqUwPfNLfHUKnrSXRxKs1lFYOk",
-  authDomain: "spyfall-48362.firebaseapp.com",
-  projectId: "spyfall-48362",
-  storageBucket: "spyfall-48362.appspot.com",
-  messagingSenderId: "654824877417",
-  appId: "1:654824877417:web:7813e8bffe4e79b84f21f8",
-  databaseURL: "https://spyfall-48362-default-rtdb.asia-southeast1.firebasedatabase.app",
+  apiKey: "AIzaSyCEmnHNGJIepP7uOdtrEv3lGs9DsLlGfZY",
+  authDomain: "spyfall-1df20.firebaseapp.com",
+  databaseURL: "https://spyfall-1df20-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "spyfall-1df20",
+  storageBucket: "spyfall-1df20.appspot.com",
+  messagingSenderId: "957730023140",
+  appId: "1:957730023140:web:856928d890af3464f4eef1"
 };
 
 // Initialize Firebase

@@ -55,7 +55,7 @@ function PlayerList(props) {
                     <div className="playerListTable">
                         {Object.entries(players).map(player => {
                             const [uid, playerInfo] = player;
-                            if (playerInfo.Ready !== true && playerInfo.Online === true) return null
+                            if (playerInfo.Ready === true && playerInfo.Online === true) return null
                             return (
                                 <div key={uid} className="playerListPlayer">
                                     <div className="playerListName" style={{
